@@ -1,6 +1,7 @@
 package com.hpr.composemap.di
 
 import android.content.Context
+import com.hpr.composemap.base.BaseApp
 import com.hpr.core.db.AppRoom
 import com.hpr.core.network.AppInterceptor
 import com.hpr.core.network.AppMoshi
@@ -10,39 +11,34 @@ import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object AppModule {
-
-    @Singleton
-    @Provides
-    fun provideContext(baseApp: com.hpr.composemap.base.BaseApp) = baseApp.applicationContext
+internal object AppModule {
 
     @Provides
-    @Singleton
+    fun provideContext(baseApp: BaseApp) : Context = baseApp.applicationContext
+
+    @Provides
     fun provideInterceptor() = AppInterceptor
 
     @Provides
-    @Singleton
     fun provideOkHttpClient(
         appInterceptor: AppInterceptor,
     ) = AppOkHttpClient.build(appInterceptor)
 
     @Provides
-    @Singleton
     fun provideMoshi() = AppMoshi.build()
 
-    @Singleton
     @Provides
     fun provideRetrofit(moshi: Moshi, okHttpClient: OkHttpClient) =
         AppRetrofit.build(moshi, okHttpClient)
 
-    @Singleton
     @Provides
-    fun provideDatabase(context: Context, ) = AppRoom.build(context)
+    fun provideDatabase(@ApplicationContext context: Context) = AppRoom.build(context)
 
 }

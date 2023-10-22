@@ -1,29 +1,24 @@
-package com.hpr.core
+package com.hpr.core.network
 
 import okhttp3.Authenticator
 import okhttp3.Interceptor
-import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.Response
 import okhttp3.Route
-import retrofit2.Retrofit
+import javax.inject.Singleton
 
 
-class AppInterceptor : Interceptor , Authenticator {
+@Singleton
+object AppInterceptor : Interceptor  {
 
     override fun intercept(chain: Interceptor.Chain): Response {
         return chain.run {
             proceed(
                 request().newBuilder()
-                    .addHeader("appId", "")
+                    .addHeader("Cache-control", "no-cache")
                     .build()
             )
         }
     }
-
-    override fun authenticate(route: Route?, response: Response): Request? {
-        TODO("Not yet implemented")
-    }
-
 
 }

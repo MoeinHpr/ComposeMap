@@ -43,6 +43,7 @@ android {
 dependencies {
 
     implementation(project(":data"))
+    implementation(project(":core"))
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
@@ -68,9 +69,14 @@ dependencies {
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.4")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.4")
 
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-moshi:2.9.0")
+    ksp("com.squareup.moshi:moshi-kotlin-codegen:1.14.0")
+
+    implementation ("androidx.room:room-runtime:2.6.0")
+    ksp ("androidx.room:room-compiler:2.6.0")
+
     implementation ("com.google.dagger:hilt-android:2.48.1")
     ksp ("com.google.dagger:hilt-compiler:2.48.1")
-
-    //ksp("com.squareup.moshi:moshi-kotlin-codegen:1.14.0")
 
 }

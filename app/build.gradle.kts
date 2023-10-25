@@ -55,6 +55,7 @@ android {
 
 dependencies {
     implementation(project(":core"))
+    implementation(project(":data"))
     implementation(project(":features:map"))
 
     //Utils
@@ -86,9 +87,13 @@ dependencies {
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.4")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.4")
 
-    implementation("com.squareup.moshi:moshi:1.14.0")
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-moshi:2.9.0")
+    implementation("com.squareup.moshi:moshi-kotlin:1.13.0")
+    ksp("com.squareup.moshi:moshi-kotlin-codegen:1.14.0")
 
+    implementation ("androidx.room:room-runtime:2.6.0")
+    ksp ("androidx.room:room-compiler:2.6.0")
 
     implementation ("com.google.dagger:hilt-android:2.48.1")
     ksp("com.google.dagger:hilt-compiler:2.48.1")

@@ -9,10 +9,10 @@ import javax.inject.Singleton
 
 @Singleton
 object AppRetrofit {
-    fun build(moshi: Moshi, okHttpClient: OkHttpClient): Retrofit =
+    fun build(moshiConverterFactory: MoshiConverterFactory, okHttpClient: OkHttpClient): Retrofit =
         Retrofit.Builder()
+            .addConverterFactory(moshiConverterFactory)
             .baseUrl(BuildConfig.BASE_URL)
-            .addConverterFactory(MoshiConverterFactory.create(moshi))
             .client(okHttpClient)
             .build()
 }

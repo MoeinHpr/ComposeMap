@@ -2,7 +2,7 @@ package com.hpr.core.db
 
 import android.content.Context
 import androidx.room.Room
-import com.hpr.data.db.AppDatabase
+import com.hpr.data.db.base.AppDatabase
 import javax.inject.Singleton
 
 @Singleton

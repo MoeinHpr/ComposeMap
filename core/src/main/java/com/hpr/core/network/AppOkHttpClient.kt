@@ -5,7 +5,6 @@ import okhttp3.OkHttpClient
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
-
 @Singleton
 object AppOkHttpClient {
 

@@ -1,8 +1,8 @@
-package com.hpr.data.db.dao
+package com.hpr.data.db
 
 import androidx.room.Dao
 import androidx.room.Query
-import com.hpr.data.db.BaseDao
+import com.hpr.data.db.base.BaseDao
 import com.hpr.data.model.CarsEntity
 import kotlinx.coroutines.flow.Flow
 

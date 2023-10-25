@@ -1,6 +1,6 @@
 package com.hpr.data.dataSource.map
 
-import com.hpr.data.db.dao.MapDao
+import com.hpr.data.db.MapDao
 import com.hpr.data.model.CarsModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map

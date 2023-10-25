@@ -8,6 +8,6 @@ import retrofit2.http.GET
 interface MapApi {
 
     @GET("codingtask/cars")
-    suspend fun getCars() : AppNetworkResponse<List<CarsModel>>
+    suspend fun getCars() : Response<List<CarsModel>>
 
 }

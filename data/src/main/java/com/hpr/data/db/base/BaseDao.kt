@@ -1,4 +1,4 @@
-package com.hpr.data.db
+package com.hpr.data.db.base
 
 abstract class BaseDao<out T> {
 

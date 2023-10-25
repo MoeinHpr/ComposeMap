@@ -1,6 +1,5 @@
 package com.hpr.core.network
 
-import androidx.core.os.BuildCompat
 import com.hpr.module.core.BuildConfig
 import com.squareup.moshi.Moshi
 import okhttp3.OkHttpClient

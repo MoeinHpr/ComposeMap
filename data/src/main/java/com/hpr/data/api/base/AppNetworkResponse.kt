@@ -4,8 +4,8 @@ import retrofit2.Response
 
 sealed class AppNetworkResponse<out T> {
 
-    data class Success<T>(
-        val response: Response<T>,
+    data class Success<out T>(
+        val response: T,
         val status: Boolean
     ) : AppNetworkResponse<T>()
 

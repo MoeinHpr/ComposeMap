@@ -11,9 +11,11 @@ import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.internal.managers.ApplicationComponentManager
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
+import retrofit2.converter.moshi.MoshiConverterFactory
 import javax.inject.Singleton
 
 @Module
@@ -35,8 +37,11 @@ internal object AppModule {
     fun provideMoshi() = AppMoshi.build()
 
     @Provides
-    fun provideRetrofit(moshi: Moshi, okHttpClient: OkHttpClient) =
-        AppRetrofit.build(moshi, okHttpClient)
+    fun provideMoshiConverterFactory(moshi: Moshi) = AppMoshi.moshiConverter(moshi)
+
+    @Provides
+    fun provideRetrofit(moshiConverterFactory : MoshiConverterFactory, okHttpClient: OkHttpClient) =
+        AppRetrofit.build(moshiConverterFactory, okHttpClient)
 
     @Provides
     fun provideDatabase(@ApplicationContext context: Context) = AppRoom.build(context)

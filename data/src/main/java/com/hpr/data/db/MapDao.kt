@@ -15,10 +15,14 @@ abstract class MapDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     abstract suspend fun insertAllCars(list : List<CarsEntity>)
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    abstract suspend fun insertCar(car : CarsEntity)
+
     @Query("SELECT * FROM CarsEntity")
     abstract suspend fun getAllCars() : List<CarsEntity>
 
     @Query("SELECT * FROM CarsEntity")
     abstract fun getAllCarsFlow() : Flow<List<CarsEntity>>
+
 
 }

@@ -7,6 +7,7 @@ import com.hpr.core.network.AppInterceptor
 import com.hpr.core.network.AppMoshi
 import com.hpr.core.network.AppOkHttpClient
 import com.hpr.core.network.AppRetrofit
+import com.hpr.core.utils.AppCoil
 import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
@@ -45,5 +46,8 @@ internal object AppModule {
 
     @Provides
     fun provideDatabase(@ApplicationContext context: Context) = AppRoom.build(context)
+
+    @Provides
+    fun provideCoil(@ApplicationContext context: Context) = AppCoil.build(context)
 
 }

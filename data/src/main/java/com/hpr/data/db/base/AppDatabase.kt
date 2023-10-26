@@ -2,6 +2,7 @@ package com.hpr.data.db.base
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import com.hpr.data.db.MapDao
 import com.hpr.data.model.CarsEntity
 

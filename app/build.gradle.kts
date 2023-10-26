@@ -21,7 +21,7 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
-        resValue("string" , "maps_api_key" , "AIzaSyAxorIaJ6fi9fLX2M2TaJUn9D_TDxVgbrw")
+        resValue("string" , "maps_api_key" , "AIzaSyClQABflkp-yqPkxJCLHA23p9YJxeqv-PM")
     }
 
     buildTypes {
@@ -97,4 +97,7 @@ dependencies {
 
     implementation ("com.google.dagger:hilt-android:2.48.1")
     ksp("com.google.dagger:hilt-compiler:2.48.1")
+
+    implementation("io.coil-kt:coil-compose:1.4.0")
+
 }

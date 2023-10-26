@@ -1,5 +1,6 @@
 package com.hpr.data.model
 
+import android.graphics.Bitmap
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -16,6 +17,7 @@ data class CarsModel(
     @Json(name = "longitude") val longitude: Double,
     @Json(name = "licensePlate") val licensePlate: String,
     @Json(name = "modelName") val modelName: String,
+    @Json(ignore = true) var carImageBitmap: Bitmap? = null,
 ) {
     fun toEntity() = CarsEntity(
         id,
@@ -57,6 +59,6 @@ data class CarsEntity(
     val modelName: String,
 ) {
     fun toModel() = CarsModel(
-        id, name, carImageUrl, color, latitude, longitude, licensePlate, modelName
+        id, name, carImageUrl, color, latitude, longitude, licensePlate, modelName,
     )
 }

@@ -4,7 +4,7 @@ plugins {
     id("com.google.devtools.ksp")
     id("com.google.dagger.hilt.android")
 }
-
+apply(plugin = "dev.shreyaspatil.compose-compiler-report-generator")
 android {
     namespace = "com.hpr.features.map"
     compileSdk = 34

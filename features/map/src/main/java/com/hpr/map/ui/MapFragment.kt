@@ -9,7 +9,9 @@ import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.Stable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -41,23 +43,22 @@ import kotlinx.coroutines.launch
 @Composable
 fun MapFragment(
     navController: NavController,
-    viewModel: MapViewModel = hiltViewModel(),
 ) {
-    ContainerUi(viewModel = viewModel)
+    ContainerUi()
 }
 
 @Composable
-fun ContainerUi(modifier: Modifier = Modifier, viewModel: MapViewModel) {
+fun ContainerUi(modifier: Modifier = Modifier) {
     Surface(
         modifier = Modifier.fillMaxSize(),
         color = MaterialTheme.colorScheme.background
     ) {
-        ContainerMap(modifier, viewModel)
+        ContainerMap(modifier)
     }
 }
 
 @Composable
-fun ContainerMap(modifier: Modifier, viewModel: MapViewModel) {
+fun ContainerMap(modifier: Modifier, viewModel: MapViewModel = hiltViewModel()) {
 
     var carsList by remember {
         mutableStateOf(listOf<CarsModel>())

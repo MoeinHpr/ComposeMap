@@ -27,7 +27,7 @@ import com.hpr.data.model.CarsModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ContainerBottomSheet(modifier: Modifier = Modifier, carsList: List<CarsModel>) {
+fun ContainerBottomSheet(modifier: Modifier = Modifier, carsList: List<CarsModel> = listOf()) {
     BottomSheetScaffold(sheetContent = {
         LazyColumn(modifier = modifier.fillMaxSize()) {
             items(carsList) {
@@ -39,7 +39,7 @@ fun ContainerBottomSheet(modifier: Modifier = Modifier, carsList: List<CarsModel
 }
 
 @Composable
-fun CarsCardItem(carsModel: CarsModel) {
+fun CarsCardItem(carsModel: CarsModel = CarsModel()) {
     Card(
         modifier = Modifier
             .padding(10.dp)

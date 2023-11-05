@@ -11,7 +11,7 @@ class DataSourceLocalMap @Inject constructor(
 ) {
 
     suspend fun insertAllCars(cars : List<CarsModel>){
-        mapDao.insertAllCars(cars.map { it.toEntity() }!!)
+        mapDao.insertAllCars(cars.map { it.toEntity() })
     }
 
     suspend fun getAllCars() : List<CarsModel>{

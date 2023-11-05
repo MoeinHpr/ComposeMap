@@ -9,14 +9,14 @@ import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class CarsModel(
-    @Json(name = "id") val id: String,
-    @Json(name = "name") val name: String,
-    @Json(name = "carImageUrl") val carImageUrl: String,
-    @Json(name = "color") val color: String,
-    @Json(name = "latitude") val latitude: Double,
-    @Json(name = "longitude") val longitude: Double,
-    @Json(name = "licensePlate") val licensePlate: String,
-    @Json(name = "modelName") val modelName: String,
+    @Json(name = "id") val id: String = "",
+    @Json(name = "name") val name: String= "",
+    @Json(name = "carImageUrl") val carImageUrl: String= "",
+    @Json(name = "color") val color: String= "",
+    @Json(name = "latitude") val latitude: Double = 0.0,
+    @Json(name = "longitude") val longitude: Double = 0.0,
+    @Json(name = "licensePlate") val licensePlate: String= "",
+    @Json(name = "modelName") val modelName: String= "",
     @Json(ignore = true) var carImageBitmap: Bitmap? = null,
 ) {
     fun toEntity() = CarsEntity(

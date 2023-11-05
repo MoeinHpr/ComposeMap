@@ -5,6 +5,7 @@ import com.hpr.composemap.base.BaseApp
 import com.hpr.core.db.AppRoom
 import com.hpr.core.network.AppInterceptor
 import com.hpr.core.network.AppMoshi
+import com.hpr.data.api.AppNetworkChecker
 import com.hpr.core.network.AppOkHttpClient
 import com.hpr.core.network.AppRetrofit
 import com.hpr.core.utils.AppCoil
@@ -12,12 +13,10 @@ import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.internal.managers.ApplicationComponentManager
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import retrofit2.converter.moshi.MoshiConverterFactory
-import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -49,5 +48,8 @@ internal object AppModule {
 
     @Provides
     fun provideCoil(@ApplicationContext context: Context) = AppCoil.build(context)
+
+    @Provides
+    fun provideAppNetworkChecker(@ApplicationContext context: Context) = AppNetworkChecker(context)
 
 }

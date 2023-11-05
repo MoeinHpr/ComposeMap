@@ -42,10 +42,4 @@ class MapViewModel @Inject constructor(
         }
 
     }
-
-    fun insertCars(carsModel: List<CarsModel>) {
-        viewModelScope.launch {
-            mapRepository.insertAllCarsLocal(carsModel)
-        }
-    }
 }

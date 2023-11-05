@@ -2,7 +2,9 @@ package com.hpr.core.utils
 
 import android.content.Context
 import android.graphics.Bitmap
+import android.util.Log
 import androidx.core.graphics.drawable.toBitmap
+import coil.imageLoader
 import coil.request.ImageRequest
 import coil.request.SuccessResult
 import dagger.hilt.android.EntryPointAccessors
@@ -21,18 +23,17 @@ suspend fun Context.loadImageBitmap(id : String ,imageUrl: String, mBitmap: (Bit
 }
 
 suspend fun Context.getBitmapFromUrl(url: String): Bitmap? {
-    try {
-        val entryPoint =
-            EntryPointAccessors.fromApplication(this, ImageLoaderEntryPoint::class.java)
-        val imageLoader = entryPoint.imageLoader()
+    return try {
+        val imageLoader = this.imageLoader
         val result = imageLoader.execute(ImageRequest.Builder(this).data(url).build())
-        return if (result is SuccessResult) {
-             val bitmap = result.drawable.toBitmap()
-            val scaledBitmap = Bitmap.createScaledBitmap(bitmap , 100 , 80 , false)
+        if (result is SuccessResult) {
+            val bitmap = result.drawable.toBitmap()
+            val scaledBitmap = Bitmap.createScaledBitmap(bitmap , 120 , 100 , false)
             scaledBitmap.copy(Bitmap.Config.ARGB_8888 , true)
         } else null
     } catch (e: Exception) {
-        throw IllegalStateException("Failed to load image")
+        Log.e("Image exception" , e.localizedMessage)
+        null
     }
 }
 

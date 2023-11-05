@@ -24,7 +24,9 @@ class MapViewModel @Inject constructor(
             carsListFlow().collect {
                 if (it.isEmpty()) {
                     callEnqueue(
-                        request = mapRepository.getCarsNetwork(),
+                        request = {
+                            mapRepository.getCarsNetwork()
+                        },
                         onSuccess = {
                             mapRepository.insertAllCarsLocal(it)
                         },
@@ -41,7 +43,7 @@ class MapViewModel @Inject constructor(
 
     }
 
-    fun insertCars(carsModel : List<CarsModel>){
+    fun insertCars(carsModel: List<CarsModel>) {
         viewModelScope.launch {
             mapRepository.insertAllCarsLocal(carsModel)
         }

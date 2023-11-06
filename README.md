@@ -8,6 +8,7 @@ Describe your project briefly. What is its purpose, and what problem does it sol
 
 ## Technologies and Libraries Used
 
+- **Software Architecture:** MVVM-Clean Architecture
 - **Dependency Injection:** Hilt
 - **UI Framework:** Jetpack Compose
 - **Network Requests:** Retrofit
@@ -16,7 +17,8 @@ Describe your project briefly. What is its purpose, and what problem does it sol
 - **MultiThreading:** Kotlin Coroutines
 - **Asynchronous Programming:** Kotlin Flow
 - **JSON Serialization/Deserialization:** Moshi
-
+- **Version Catalog**
+- 
 ## Features
 
 List the main features of your project, including any specific functionalities that you would like to highlight.

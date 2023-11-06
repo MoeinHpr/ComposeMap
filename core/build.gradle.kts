@@ -49,27 +49,25 @@ android {
 dependencies {
     implementation(project(":data"))
 
+    // Core
+    implementation(libs.core.ktx)
+    implementation(libs.core.ktx.lifecycle)
 
-    implementation("androidx.core:core-ktx:1.12.0")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.10.0")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    // Retrofit
+    implementation(libs.bundles.retrofit)
+    implementation(libs.moshi.converter)
+    ksp(libs.moshi.codegen)
 
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation ("com.squareup.retrofit2:converter-moshi:2.9.0")
-    implementation("com.squareup.moshi:moshi-kotlin:1.13.0")
-    ksp("com.squareup.moshi:moshi-kotlin-codegen:1.14.0")
+    // Room
+    implementation(libs.room.runtime)
+    ksp (libs.room.compiler)
 
-    implementation ("androidx.room:room-runtime:2.6.0")
-    ksp ("androidx.room:room-compiler:2.6.0")
+    // Hilt
+    implementation(libs.hilt)
+    ksp (libs.hilt.compiler)
 
-    implementation ("com.google.dagger:hilt-android:2.48.1")
-    ksp ("com.google.dagger:hilt-compiler:2.48.1")
-
-    implementation("io.coil-kt:coil-compose:1.4.0")
+    // Coil
+    implementation(libs.coil.compose)
 
 
 }

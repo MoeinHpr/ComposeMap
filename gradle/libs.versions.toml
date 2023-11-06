@@ -1,0 +1,99 @@
+[versions]
+
+
+## Top-level Gradle
+android_application_version = "8.1.2"
+kotlin_android_version = "1.9.0"
+google_ksp_version = "1.9.0-1.0.12"
+compose_report_generator_version = "1.1.0"
+
+## Mid-level Gradle
+junit_test_version = "4.13.2"
+junit_ext_version = "1.1.5"
+espresso_core_version = "3.5.1"
+
+ktx_version = "1.12.0"
+lifecycle_ktx_version = "2.6.2"
+
+compose_bom_version = "2023.10.01"
+compose_activity_version = "1.8.0"
+compose_navigation_version = "2.7.4"
+
+hilt_version = "2.48.1"
+hilt_navigation_version = "1.1.0"
+
+retrofit_version = "2.9.0"
+okhttp_version = "4.9.1"
+moshi_version = "1.13.0"
+moshi_codegen_version = "1.14.0"
+
+room_version = "2.6.0"
+
+coil_compose_version = "2.5.0"
+
+google_map_compose_version = "2.15.0"
+google_play_services_maps_version = "18.2.0"
+
+
+[libraries]
+test-junit = { module = "junit:junit", version.ref = "junit_test_version" }
+test-junit-ext = { module = "androidx.test.ext:junit", version.ref = "junit_ext_version" }
+test-espresso = { module = "androidx.test.espresso:espresso-core", version.ref = "espresso_core_version" }
+test-compose = { module = "androidx.compose.ui:ui-test-junit4" }
+
+core-ktx = { module = "androidx.core:core-ktx", version.ref = "ktx_version" }
+core-ktx-lifecycle = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycle_ktx_version" }
+
+compose-activity = { module = "androidx.activity:activity-compose", version.ref = "compose_activity_version" }
+compose-navigation = { module = "androidx.navigation:navigation-compose", version.ref = "compose_navigation_version" }
+compose-navigation-ui = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "compose_navigation_version" }
+compose-navigation-fragment = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "compose_navigation_version" }
+compose-bom = { module = "androidx.compose:compose-bom", version.ref = "compose_bom_version" }
+compose-ui = { module = "androidx.compose.ui:ui" }
+compose-ui-graphics = { module = "androidx.compose.ui:ui-graphics" }
+compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
+compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
+compose-material3 = { module = "androidx.compose.material3:material3" }
+compose-debug-ui = { module = "androidx.compose.ui:ui-tooling" }
+compose-debug-test = { module = "androidx.compose.ui:ui-test-manifest" }
+
+retrofit2 = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit_version" }
+retrofit2-converter = { module = "com.squareup.retrofit2:converter-moshi", version.ref = "retrofit_version" }
+moshi-converter = { module = "com.squareup.moshi:moshi-kotlin", version.ref = "moshi_version" }
+moshi-codegen = { module = "com.squareup.moshi:moshi-kotlin-codegen", version.ref = "moshi_codegen_version" }
+
+room-runtime = { module = "androidx.room:room-runtime", version.ref = "room_version" }
+room-ktx = { module = "androidx.room:room-ktx", version.ref = "room_version" }
+room-compiler = { module = "androidx.room:room-compiler", version.ref = "room_version" }
+
+hilt = { module = "com.google.dagger:hilt-android", version.ref = "hilt_version" }
+hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hilt_version" }
+hilt-navigation = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hilt_navigation_version" }
+
+coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil_compose_version" }
+
+google-map-compose = { module = "com.google.maps.android:maps-compose", version.ref = "google_map_compose_version" }
+google-playservices-map = { module = "com.google.android.gms:play-services-maps", version.ref = "google_play_services_maps_version" }
+
+[bundles]
+room = [
+    "room-runtime",
+    "room-ktx"
+]
+retrofit = [
+    "retrofit2",
+    "retrofit2-converter"
+]
+composeNavigation = [
+    "compose-navigation",
+    "compose-navigation-fragment",
+    "compose-navigation-ui"
+]
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "android_application_version" }
+android-kotlin = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin_android_version" }
+android-library = { id = "com.android.library", version.ref = "android_application_version" }
+google-ksp = { id = "com.google.devtools.ksp", version.ref = "google_ksp_version" }
+google-hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt_version" }
+compose-report-generator = { id = "dev.shreyaspatil.compose-compiler-report-generator", version.ref = "compose_report_generator_version" }

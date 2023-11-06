@@ -2,7 +2,6 @@ package com.hpr.map.domain
 
 import androidx.lifecycle.viewModelScope
 import com.hpr.data.base.BaseViewModel
-import com.hpr.data.model.CarsModel
 import com.hpr.data.repository.map.MapRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -27,8 +26,8 @@ class MapViewModel @Inject constructor(
                         request = {
                             mapRepository.getCarsNetwork()
                         },
-                        onSuccess = {
-                            mapRepository.insertAllCarsLocal(it)
+                        onSuccess = { carsModelList ->
+                            mapRepository.insertAllCarsLocal(carsModelList)
                         },
                         onServerError = {
                             val a = it.message

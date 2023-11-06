@@ -21,7 +21,7 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
-        resValue("string" , "maps_api_key" , "YOUR-GOOGLE-API-KEY")
+        resValue("string" , "maps_api_key" , "AIzaSyClQABflkp-yqPkxJCLHA23p9YJxeqv-PM")
     }
 
     buildTypes {
@@ -54,51 +54,51 @@ android {
 }
 
 dependencies {
+
     implementation(project(":core"))
     implementation(project(":data"))
     implementation(project(":features:map"))
 
-    //Utils
-    implementation("androidx.core:core-ktx:1.12.0")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
+    // Core
+    implementation(libs.core.ktx)
+    implementation(libs.core.ktx.lifecycle)
 
-    //Compose
-    implementation("androidx.activity:activity-compose:1.8.0")
-    implementation(platform("androidx.compose:compose-bom:2023.10.01"))
-    implementation("androidx.compose.ui:ui")
-    implementation("androidx.compose.ui:ui-graphics")
-    implementation("androidx.compose.ui:ui-tooling-preview")
-    implementation("androidx.compose.ui:ui-tooling")
-    implementation("androidx.compose.material3:material3")
+    // Compose
+    implementation(platform(libs.compose.bom))
+    implementation(libs.compose.activity)
+    implementation(libs.compose.ui)
+    implementation(libs.compose.ui.graphics)
+    implementation(libs.compose.ui.tooling.preview)
+    implementation(libs.compose.ui.tooling)
+    implementation(libs.compose.material3)
+    implementation(libs.bundles.composeNavigation)
+
+    // Hilt
+    implementation(libs.hilt.navigation)
+    implementation(libs.hilt)
+    ksp(libs.hilt.compiler)
+
+    // Retrofit
+    implementation(libs.bundles.retrofit)
+    implementation(libs.moshi.converter)
+    ksp(libs.moshi.codegen)
+
+    // Room
+    implementation(libs.room.runtime)
+    ksp (libs.room.compiler)
+
+    // Coil
+    implementation(libs.coil.compose)
 
     //Test
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-    androidTestImplementation(platform("androidx.compose:compose-bom:2023.03.00"))
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4")
+    testImplementation(libs.test.junit)
+    androidTestImplementation(libs.test.junit.ext)
+    androidTestImplementation(libs.test.espresso)
+    androidTestImplementation(platform(libs.compose.bom))
+    androidTestImplementation(libs.test.compose)
 
     //Debug
-    debugImplementation("androidx.compose.ui:ui-tooling")
-    debugImplementation("androidx.compose.ui:ui-test-manifest")
-
-
-    implementation("androidx.navigation:navigation-compose:2.7.4")
-    implementation("androidx.navigation:navigation-fragment-ktx:2.7.4")
-    implementation("androidx.navigation:navigation-ui-ktx:2.7.4")
-
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation ("com.squareup.retrofit2:converter-moshi:2.9.0")
-    implementation("com.squareup.moshi:moshi-kotlin:1.13.0")
-    ksp("com.squareup.moshi:moshi-kotlin-codegen:1.14.0")
-
-    implementation ("androidx.room:room-runtime:2.6.0")
-    ksp ("androidx.room:room-compiler:2.6.0")
-
-    implementation("androidx.hilt:hilt-navigation-compose:1.1.0")
-    implementation ("com.google.dagger:hilt-android:2.48.1")
-    ksp("com.google.dagger:hilt-compiler:2.48.1")
-
-    implementation("io.coil-kt:coil-compose:2.5.0")
+    debugImplementation(libs.compose.debug.ui)
+    debugImplementation(libs.compose.debug.test)
 
 }

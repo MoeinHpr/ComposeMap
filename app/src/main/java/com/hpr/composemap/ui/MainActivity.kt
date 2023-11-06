@@ -1,4 +1,4 @@
-package com.hpr.composemap
+package com.hpr.composemap.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

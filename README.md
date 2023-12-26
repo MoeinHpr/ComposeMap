@@ -1,6 +1,6 @@
 # ComposeMap
 
-Welcome to my project repository! This project is an Android application that showcases the use of several modern libraries and tools for efficient Android app development. Read on to learn more about this project and the technologies used.
+Welcome to my modular project repository! This Android application serves as a comprehensive demonstration of the efficient use of various modern libraries and tools in Android app development. Each module within the project focuses on specific functionalities, allowing for a modular and organized approach. Read on to explore the intricacies of this project and delve into the cutting-edge technologies employed in its development.
 
 ## Project Overview
 
@@ -18,7 +18,7 @@ Describe your project briefly. What is its purpose, and what problem does it sol
 - **Asynchronous Programming:** Kotlin Flow
 - **JSON Serialization/Deserialization:** Moshi
 - **Version Catalog**
-- 
+
 ## Features
 
 List the main features of your project, including any specific functionalities that you would like to highlight.
